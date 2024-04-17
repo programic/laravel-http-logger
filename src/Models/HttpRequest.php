@@ -5,8 +5,9 @@ namespace Programic\HttpLogger\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Prunable;
+use Programic\HttpLogger\Contracts\HttpRequest as HttpLoggerContract;
 
-class HttpRequest extends Model
+class HttpRequest extends Model implements HttpLoggerContract
 {
     use Prunable;
 

@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Programic\HttpLogger\Contracts\LogProfile;
 use Programic\HttpLogger\Contracts\LogWriter;
 use Programic\HttpLogger\Middlewares\HttpLogger;
+use Programic\HttpLogger\Contracts\HttpRequest as HttpLoggerContract;
 
 class HttpLoggerServiceProvider extends ServiceProvider
 {

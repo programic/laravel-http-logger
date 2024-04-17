@@ -19,7 +19,7 @@ class DatabaseLogWriter implements LogWriter
         $message = $this->formatMessage($this->getMessage($request));
 
         $requestModel = app(HttpRequestContract::class);
-
+//
         $requestModel::create([
             'request_id' => $request->headers->get('X-Http-Uuid'),
             'request' => $message,
