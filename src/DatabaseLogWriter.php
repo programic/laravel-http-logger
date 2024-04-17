@@ -18,19 +18,19 @@ class DatabaseLogWriter implements LogWriter
         $message = $this->formatMessage($this->getMessage($request));
 
         HttpRequest::create([
-            'request_id' => Str::uuid(),
+            'request_id' => $request->headers->get('X-Http-Uuid'),
             'request' => $message,
         ]);
     }
 
     public function logResponse(Request $request, Response $response)
     {
-        $message = $this->formatMessage($this->getMessage($request));
-
-        HttpRequest::create([
-            'request_id' => Str::uuid(),
-            'request' => $message,
-        ]);
+        HttpRequest::where('request_id', $request->headers->get('X-Http-Uuid'))
+            ->update([
+                'response' => $response->getContent(),
+                'status_code' => $response->getStatusCode(),
+                'finished_at' => now(),
+            ]);
     }
 
     public function getMessage(Request $request)

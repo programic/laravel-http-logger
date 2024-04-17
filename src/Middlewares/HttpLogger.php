@@ -34,6 +34,8 @@ class HttpLogger
 
     public function terminate(Request $request, Response $response): void
     {
-        $this->logWriter->logResponse($request, $response);
+        if ($this->logProfile === null || $this->logProfile->shouldLogRequest($request)) {
+            $this->logWriter->logResponse($request, $response);
+        }
     }
 }
