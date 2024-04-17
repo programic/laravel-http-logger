@@ -7,12 +7,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\Response;
 
 class DatabaseLogWriter implements LogWriter
 {
     protected $sanitizer;
 
     public function logRequest(Request $request)
+    {
+        $message = $this->formatMessage($this->getMessage($request));
+
+        HttpRequest::create([
+            'request_id' => Str::uuid(),
+            'request' => $message,
+        ]);
+    }
+
+    public function logResponse(Request $request, Response $response)
     {
         $message = $this->formatMessage($this->getMessage($request));
 

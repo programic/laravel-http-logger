@@ -3,6 +3,7 @@
 namespace Programic\HttpLogger;
 
 use Illuminate\Support\ServiceProvider;
+use Programic\HttpLogger\Middlewares\HttpLogger;
 
 class HttpLoggerServiceProvider extends ServiceProvider
 {
@@ -25,5 +26,7 @@ class HttpLoggerServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/http-logger.php', 'http-logger');
+
+        $this->app->singleton(HttpLogger::class);
     }
 }

@@ -23,6 +23,13 @@ Optionally you can publish the config file with:
 php artisan vendor:publish --provider="Programic\HttpLogger\HttpLoggerServiceProvider" --tag="config" 
 ```
 
+Optionally you can publish the migration file with:
+
+```bash
+php artisan vendor:publish --provider="Programic\HttpLogger\HttpLoggerServiceProvider" --tag="migrations" 
+```
+
+
 This is the contents of the published config file:
 
 ```php

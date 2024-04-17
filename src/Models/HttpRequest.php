@@ -11,6 +11,8 @@ class HttpRequest extends Model
     protected $fillable = [
         'request_id',
         'request',
+        'response',
+        'status_code',
         'finished_at',
     ];
 

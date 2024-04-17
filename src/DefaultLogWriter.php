@@ -6,12 +6,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultLogWriter implements LogWriter
 {
     protected $sanitizer;
 
     public function logRequest(Request $request)
+    {
+        $message = $this->formatMessage($this->getMessage($request));
+
+        Log::channel(config('http-logger.log_channel'))->log(config('http-logger.log_level', 'info'), $message);
+    }
+
+    public function logResponse(Request $request, Response $response)
     {
         $message = $this->formatMessage($this->getMessage($request));
 

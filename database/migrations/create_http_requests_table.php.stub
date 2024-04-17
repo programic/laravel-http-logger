@@ -4,17 +4,19 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMailboxInboundEmailsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('http_requests', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->uuid('request_id');
             $table->json('request');
+            $table->longText('response')->nullable();
+            $table->unsignedInteger('status_code')->nullable();
             $table->timestamps();
             $table->timestamp('finished_at')->nullable();
         });
@@ -22,8 +24,8 @@ class CreateMailboxInboundEmailsTable extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('http_requests');
     }
-}
+};
