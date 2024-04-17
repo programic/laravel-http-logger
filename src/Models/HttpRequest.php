@@ -2,10 +2,14 @@
 
 namespace Programic\HttpLogger\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Prunable;
 
 class HttpRequest extends Model
 {
+    use Prunable;
+
     protected $table = 'http_requests';
 
     protected $fillable = [
@@ -20,4 +24,9 @@ class HttpRequest extends Model
         'request' => 'array',
         'finished_at' => 'date',
     ];
+
+    public function prunable(): Builder
+    {
+        return static::where('created_at', '<=', now()->subWeek());
+    }
 }

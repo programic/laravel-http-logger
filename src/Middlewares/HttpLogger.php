@@ -5,8 +5,8 @@ namespace Programic\HttpLogger\Middlewares;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Programic\HttpLogger\LogProfile;
-use Programic\HttpLogger\LogWriter;
+use Programic\HttpLogger\Contracts\LogProfile;
+use Programic\HttpLogger\Contracts\LogWriter;
 use Symfony\Component\HttpFoundation\Response;
 
 class HttpLogger

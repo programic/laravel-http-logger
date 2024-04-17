@@ -36,4 +36,9 @@ return [
      * List of headers that will be sanitized. For example Authorization, Cookie, Set-Cookie...
      */
     'sanitize_headers' => [],
+
+    /*
+     * The log database model used to write the request.
+     */
+    'database_log_model' => \Programic\HttpLogger\Models\HttpRequest::class,
 ];

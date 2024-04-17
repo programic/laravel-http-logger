@@ -5,6 +5,7 @@ namespace Programic\HttpLogger;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
+use Programic\HttpLogger\Contracts\LogWriter;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Response;
 

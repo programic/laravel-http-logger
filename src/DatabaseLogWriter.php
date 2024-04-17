@@ -2,10 +2,11 @@
 
 namespace Programic\HttpLogger;
 
-use Programic\HttpLogger\Models\HttpRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Programic\HttpLogger\Contracts\HttpRequest as HttpRequestContract;
+use Programic\HttpLogger\Contracts\LogWriter;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -17,7 +18,9 @@ class DatabaseLogWriter implements LogWriter
     {
         $message = $this->formatMessage($this->getMessage($request));
 
-        HttpRequest::create([
+        $requestModel = app(HttpRequestContract::class);
+
+        $requestModel::create([
             'request_id' => $request->headers->get('X-Http-Uuid'),
             'request' => $message,
         ]);
@@ -25,7 +28,9 @@ class DatabaseLogWriter implements LogWriter
 
     public function logResponse(Request $request, Response $response)
     {
-        HttpRequest::where('request_id', $request->headers->get('X-Http-Uuid'))
+        $requestModel = app(HttpRequestContract::class);
+
+        $requestModel::where('request_id', $request->headers->get('X-Http-Uuid'))
             ->update([
                 'response' => $response->getContent(),
                 'status_code' => $response->getStatusCode(),

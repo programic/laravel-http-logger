@@ -3,6 +3,8 @@
 namespace Programic\HttpLogger;
 
 use Illuminate\Support\ServiceProvider;
+use Programic\HttpLogger\Contracts\LogProfile;
+use Programic\HttpLogger\Contracts\LogWriter;
 use Programic\HttpLogger\Middlewares\HttpLogger;
 
 class HttpLoggerServiceProvider extends ServiceProvider
@@ -28,5 +30,6 @@ class HttpLoggerServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/http-logger.php', 'http-logger');
 
         $this->app->singleton(HttpLogger::class);
+        $this->app->bind(HttpLoggerContract::class, fn ($app) => $app->make($app->config['http-logger.database_log_model']));
     }
 }

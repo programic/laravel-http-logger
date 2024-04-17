@@ -1,6 +1,6 @@
 <?php
 
-namespace Programic\HttpLogger;
+namespace Programic\HttpLogger\Contracts;
 
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
