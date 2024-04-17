@@ -1,34 +1,26 @@
 # Log HTTP requests
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-http-logger.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-http-logger)
-[![run-tests](https://github.com/spatie/laravel-http-logger/actions/workflows/run-tests.yml/badge.svg)](https://github.com/spatie/laravel-http-logger/actions/workflows/run-tests.yml)
-[![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-http-logger.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-http-logger)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/programic/laravel-http-logger.svg?style=flat-square)](https://packagist.org/packages/programic/laravel-http-logger)
+[![run-tests](https://github.com/programic/laravel-http-logger/actions/workflows/run-tests.yml/badge.svg)](https://github.com/programic/laravel-http-logger/actions/workflows/run-tests.yml)
+[![Total Downloads](https://img.shields.io/packagist/dt/programic/laravel-http-logger.svg?style=flat-square)](https://packagist.org/packages/programic/laravel-http-logger)
 
 This package adds a middleware which can log incoming requests to the default log. 
 If anything goes wrong during a user's request, you'll still be able to access the original request data sent by that user.
 
 This log acts as an extra safety net for critical user submissions, such as forms that generate leads.
 
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-http-logger.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-http-logger)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
-
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require spatie/laravel-http-logger
+composer require programic/laravel-http-logger
 ```
 
 Optionally you can publish the config file with:
 
 ```bash
-php artisan vendor:publish --provider="Spatie\HttpLogger\HttpLoggerServiceProvider" --tag="config" 
+php artisan vendor:publish --provider="Programic\HttpLogger\HttpLoggerServiceProvider" --tag="config" 
 ```
 
 This is the contents of the published config file:
@@ -40,13 +32,13 @@ return [
      * The log profile which determines whether a request should be logged.
      * It should implement `LogProfile`.
      */
-    'log_profile' => \Spatie\HttpLogger\LogNonGetRequests::class,
+    'log_profile' => \Programic\HttpLogger\LogNonGetRequests::class,
 
     /*
      * The log writer used to write the request to a log.
      * It should implement `LogWriter`.
      */
-    'log_writer' => \Spatie\HttpLogger\DefaultLogWriter::class,
+    'log_writer' => \Programic\HttpLogger\DefaultLogWriter::class,
     
     /*
      * The log channel used to write the request.
@@ -82,7 +74,7 @@ This packages provides a middleware which can be added as a global middleware or
 
 ```php
 ->withMiddleware(function (Middleware $middleware) {
-    $middleware->append(\Spatie\HttpLogger\Middlewares\HttpLogger::class);
+    $middleware->append(\Programic\HttpLogger\Middlewares\HttpLogger::class);
 })
 ```
 
@@ -94,7 +86,7 @@ This packages provides a middleware which can be added as a global middleware or
 protected $middleware = [
     // ...
     
-    \Spatie\HttpLogger\Middlewares\HttpLogger::class
+    \Programic\HttpLogger\Middlewares\HttpLogger::class
 ];
 ```
 
@@ -103,7 +95,7 @@ protected $middleware = [
 
 Route::post('/submit-form', function () {
     //
-})->middleware(\Spatie\HttpLogger\Middlewares\HttpLogger::class);
+})->middleware(\Programic\HttpLogger\Middlewares\HttpLogger::class);
 ```
 
 ### Logging
@@ -119,11 +111,11 @@ and it will write to the default Laravel logger.
 You're free to implement your own log profile and/or log writer classes, 
 and configure it in `config/http-logger.php`.
 
-A custom log profile must implement `\Spatie\HttpLogger\LogProfile`. 
+A custom log profile must implement `\Programic\HttpLogger\LogProfile`. 
 This interface requires you to implement `shouldLogRequest`.
 
 ```php
-// Example implementation from `\Spatie\HttpLogger\LogNonGetRequests`
+// Example implementation from `\Programic\HttpLogger\LogNonGetRequests`
 
 public function shouldLogRequest(Request $request): bool
 {
@@ -131,11 +123,11 @@ public function shouldLogRequest(Request $request): bool
 }
 ```
 
-A custom log writer must implement `\Spatie\HttpLogger\LogWriter`. 
+A custom log writer must implement `\Programic\HttpLogger\LogWriter`. 
 This interface requires you to implement `logRequest`.
 
 ```php
-// Example implementation from `\Spatie\HttpLogger\DefaultLogWriter`
+// Example implementation from `\Programic\HttpLogger\DefaultLogWriter`
 
 public function logRequest(Request $request): void
 {
@@ -182,11 +174,11 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ## Contributing
 
-Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/programic/.github/blob/main/CONTRIBUTING.md) for details.
 
 ### Security
 
-If you've found a bug regarding security please mail [security@spatie.be](mailto:security@spatie.be) instead of using the issue tracker.
+If you've found a bug regarding security please mail [security@programic.be](mailto:security@programic.be) instead of using the issue tracker.
 
 ## Credits
 

@@ -6,7 +6,7 @@
 |--------------------------------------------------------------------------
 */
 
-use Spatie\HttpLogger\Test\TestCase;
+use Programic\HttpLogger\Test\TestCase;
 
 uses(TestCase::class)->in('.');
 

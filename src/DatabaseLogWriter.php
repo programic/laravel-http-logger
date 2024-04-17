@@ -2,12 +2,13 @@
 
 namespace Programic\HttpLogger;
 
+use Programic\HttpLogger\Models\HttpRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-class DefaultLogWriter implements LogWriter
+class DatabaseLogWriter implements LogWriter
 {
     protected $sanitizer;
 
@@ -15,7 +16,10 @@ class DefaultLogWriter implements LogWriter
     {
         $message = $this->formatMessage($this->getMessage($request));
 
-        Log::channel(config('http-logger.log_channel'))->log(config('http-logger.log_level', 'info'), $message);
+        HttpRequest::create([
+            'request_id' => Str::uuid(),
+            'request' => $message,
+        ]);
     }
 
     public function getMessage(Request $request)

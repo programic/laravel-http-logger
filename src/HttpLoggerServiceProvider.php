@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\HttpLogger;
+namespace Programic\HttpLogger;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -9,6 +9,10 @@ class HttpLoggerServiceProvider extends ServiceProvider
     public function boot()
     {
         if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../database/migrations/create_http_requests_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_http_requests_table.php'),
+            ], 'migrations');
+
             $this->publishes([
                 __DIR__.'/../config/http-logger.php' => config_path('http-logger.php'),
             ], 'config');

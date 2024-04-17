@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\HttpLogger;
+namespace Programic\HttpLogger;
 
 class Sanitizer
 {

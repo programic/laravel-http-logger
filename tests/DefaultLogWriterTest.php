@@ -5,7 +5,7 @@ use Illuminate\Http\UploadedFile;
 use function PHPUnit\Framework\assertStringContainsString;
 use function PHPUnit\Framework\assertStringNotContainsString;
 
-use Spatie\HttpLogger\DefaultLogWriter;
+use Programic\HttpLogger\DefaultLogWriter;
 
 beforeEach(function () {
     $this->logger = new DefaultLogWriter();

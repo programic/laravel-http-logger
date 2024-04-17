@@ -6,54 +6,54 @@ All notable changes to `laravel-http-logger` will be documented in this file.
 
 ### What's Changed
 
-* Laravel 11.x Compatibility by @laravel-shift in https://github.com/spatie/laravel-http-logger/pull/62
+* Laravel 11.x Compatibility by @laravel-shift in https://github.com/programic/laravel-http-logger/pull/62
 
-**Full Changelog**: https://github.com/spatie/laravel-http-logger/compare/1.10.2...1.11.0
+**Full Changelog**: https://github.com/programic/laravel-http-logger/compare/1.10.2...1.11.0
 
 ## 1.10.2 - 2023-07-24
 
 ### What's Changed
 
-- Add option to sanitize sensitive headers by @stfndamjanovic in https://github.com/spatie/laravel-http-logger/pull/60
+- Add option to sanitize sensitive headers by @stfndamjanovic in https://github.com/programic/laravel-http-logger/pull/60
 
 ### New Contributors
 
-- @stfndamjanovic made their first contribution in https://github.com/spatie/laravel-http-logger/pull/60
+- @stfndamjanovic made their first contribution in https://github.com/programic/laravel-http-logger/pull/60
 
-**Full Changelog**: https://github.com/spatie/laravel-http-logger/compare/1.10.1...1.10.2
+**Full Changelog**: https://github.com/programic/laravel-http-logger/compare/1.10.1...1.10.2
 
 ## 1.10.1 - 2023-01-24
 
 ### What's Changed
 
-- Update .gitattributes by @angeljqv in https://github.com/spatie/laravel-http-logger/pull/54
-- Refactor tests to pest by @AyoobMH in https://github.com/spatie/laravel-http-logger/pull/55
-- Add PHP 8.2 Support by @patinthehat in https://github.com/spatie/laravel-http-logger/pull/56
-- Laravel 10.x Compatibility by @laravel-shift in https://github.com/spatie/laravel-http-logger/pull/57
+- Update .gitattributes by @angeljqv in https://github.com/programic/laravel-http-logger/pull/54
+- Refactor tests to pest by @AyoobMH in https://github.com/programic/laravel-http-logger/pull/55
+- Add PHP 8.2 Support by @patinthehat in https://github.com/programic/laravel-http-logger/pull/56
+- Laravel 10.x Compatibility by @laravel-shift in https://github.com/programic/laravel-http-logger/pull/57
 
 ### New Contributors
 
-- @angeljqv made their first contribution in https://github.com/spatie/laravel-http-logger/pull/54
-- @AyoobMH made their first contribution in https://github.com/spatie/laravel-http-logger/pull/55
-- @patinthehat made their first contribution in https://github.com/spatie/laravel-http-logger/pull/56
-- @laravel-shift made their first contribution in https://github.com/spatie/laravel-http-logger/pull/57
+- @angeljqv made their first contribution in https://github.com/programic/laravel-http-logger/pull/54
+- @AyoobMH made their first contribution in https://github.com/programic/laravel-http-logger/pull/55
+- @patinthehat made their first contribution in https://github.com/programic/laravel-http-logger/pull/56
+- @laravel-shift made their first contribution in https://github.com/programic/laravel-http-logger/pull/57
 
-**Full Changelog**: https://github.com/spatie/laravel-http-logger/compare/1.10.0...1.10.1
+**Full Changelog**: https://github.com/programic/laravel-http-logger/compare/1.10.0...1.10.1
 
 ## 1.10.0 - 2022-06-07
 
 ### What's Changed
 
-- TestCase a little improvement by @kudashevs in https://github.com/spatie/laravel-http-logger/pull/47
-- Add additional file test by @kudashevs in https://github.com/spatie/laravel-http-logger/pull/49
-- customizable log level by @Henning256 in https://github.com/spatie/laravel-http-logger/pull/50
+- TestCase a little improvement by @kudashevs in https://github.com/programic/laravel-http-logger/pull/47
+- Add additional file test by @kudashevs in https://github.com/programic/laravel-http-logger/pull/49
+- customizable log level by @Henning256 in https://github.com/programic/laravel-http-logger/pull/50
 
 ### New Contributors
 
-- @kudashevs made their first contribution in https://github.com/spatie/laravel-http-logger/pull/47
-- @Henning256 made their first contribution in https://github.com/spatie/laravel-http-logger/pull/50
+- @kudashevs made their first contribution in https://github.com/programic/laravel-http-logger/pull/47
+- @Henning256 made their first contribution in https://github.com/programic/laravel-http-logger/pull/50
 
-**Full Changelog**: https://github.com/spatie/laravel-http-logger/compare/1.9.0...1.10.0
+**Full Changelog**: https://github.com/programic/laravel-http-logger/compare/1.9.0...1.10.0
 
 ## 1.9.0 - 2022-02-08
 
@@ -63,15 +63,15 @@ Allow Laravel 9
 
 ## What's Changed
 
-- small typo by @dongido001 in https://github.com/spatie/laravel-http-logger/pull/44
-- Configurable log channel by @SebastianSchoeps in https://github.com/spatie/laravel-http-logger/pull/45
+- small typo by @dongido001 in https://github.com/programic/laravel-http-logger/pull/44
+- Configurable log channel by @SebastianSchoeps in https://github.com/programic/laravel-http-logger/pull/45
 
 ## New Contributors
 
-- @dongido001 made their first contribution in https://github.com/spatie/laravel-http-logger/pull/44
-- @SebastianSchoeps made their first contribution in https://github.com/spatie/laravel-http-logger/pull/45
+- @dongido001 made their first contribution in https://github.com/programic/laravel-http-logger/pull/44
+- @SebastianSchoeps made their first contribution in https://github.com/programic/laravel-http-logger/pull/45
 
-**Full Changelog**: https://github.com/spatie/laravel-http-logger/compare/1.7.0...1.8.0
+**Full Changelog**: https://github.com/programic/laravel-http-logger/compare/1.7.0...1.8.0
 
 ## 1.7.0 - 2021-01-04
 

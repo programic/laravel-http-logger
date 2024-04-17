@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\HttpLogger\Middlewares;
+namespace Programic\HttpLogger\Middlewares;
 
 use Closure;
 use Illuminate\Http\Request;
-use Spatie\HttpLogger\LogProfile;
-use Spatie\HttpLogger\LogWriter;
+use Programic\HttpLogger\LogProfile;
+use Programic\HttpLogger\LogWriter;
 
 class HttpLogger
 {

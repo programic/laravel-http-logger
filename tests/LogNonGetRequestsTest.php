@@ -1,6 +1,6 @@
 <?php
 
-use Spatie\HttpLogger\LogNonGetRequests;
+use Programic\HttpLogger\LogNonGetRequests;
 
 beforeEach(function () {
     $this->logProfile = new LogNonGetRequests();

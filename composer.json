@@ -1,20 +1,12 @@
 {
-    "name": "spatie/laravel-http-logger",
+    "name": "programic/laravel-http-logger",
     "description": "A Laravel package to log HTTP requests",
     "keywords": [
-        "spatie",
+        "programic",
         "laravel-http-logger"
     ],
-    "homepage": "https://github.com/spatie/laravel-http-logger",
+    "homepage": "https://github.com/programic/laravel-http-logger",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Brent Roose",
-            "email": "brent@spatie.be",
-            "homepage": "https://spatie.be",
-            "role": "Developer"
-        }
-    ],
     "require": {
         "php": "^7.4|^8.0",
         "illuminate/support": "^8.0|^9.0|^10.0|^11.0"
@@ -26,12 +18,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\HttpLogger\\": "src"
+            "Programic\\HttpLogger\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\HttpLogger\\Test\\": "tests"
+            "Programic\\HttpLogger\\Test\\": "tests"
         }
     },
     "scripts": {
@@ -46,7 +38,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\HttpLogger\\HttpLoggerServiceProvider"
+                "Programic\\HttpLogger\\HttpLoggerServiceProvider"
             ]
         }
     },
