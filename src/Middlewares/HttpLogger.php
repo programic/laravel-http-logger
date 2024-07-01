@@ -5,6 +5,7 @@ namespace Programic\HttpLogger\Middlewares;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Programic\HttpLogger\Contracts\HttpRequest;
 use Programic\HttpLogger\Contracts\LogProfile;
 use Programic\HttpLogger\Contracts\LogWriter;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,11 +24,21 @@ class HttpLogger
 
     public function handle(Request $request, Closure $next)
     {
-        if ($this->logProfile === null || $this->logProfile->shouldLogRequest($request)) {
-            $request->headers->set('X-Http-Uuid', Str::uuid());
+        rescue(function () use ($request) {
+            if ($this->logProfile === null || $this->logProfile->shouldLogRequest($request)) {
+                $request->headers->set('X-Http-Uuid', Str::uuid());
 
-            $this->logWriter->logRequest($request);
-        }
+                $this->logWriter->logRequest($request);
+            }
+        }, function ($e) {
+            $requestModel = app(HttpRequest::class);
+
+            $requestModel::create([
+                'request_id' => Str::uuid(),
+                'request' => $e->getMessage(),
+            ]);
+        });
+
 
         return $next($request);
     }
