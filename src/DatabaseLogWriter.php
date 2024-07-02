@@ -53,10 +53,16 @@ class DatabaseLogWriter implements LogWriter
         ];
     }
 
+    public static function fixEncoding(string $s): string
+    {
+        // removes xD800-xDFFF, x110000 and higher
+        return htmlspecialchars_decode(htmlspecialchars($s, ENT_NOQUOTES | ENT_IGNORE, 'UTF-8'), ENT_NOQUOTES);
+    }
+
     protected function formatMessage(array $message)
     {
-        $bodyAsJson = json_encode($message['body']);
-        $headersAsJson = json_encode($message['headers']);
+        $bodyAsJson = self::fixEncoding(json_encode($message['body']));
+        $headersAsJson = self::fixEncoding(json_encode($message['headers']));
         $files = $message['files']->implode(',');
 
         return "{$message['method']} {$message['uri']} - Body: {$bodyAsJson} - Headers: {$headersAsJson} - Files: " . $files;
